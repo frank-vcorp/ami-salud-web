@@ -27897,3 +27897,28 @@ input[type="time"]::-webkit-calendar-picker-indicator , input[type="date"]::-web
     }
   }
 }
+
+/* ===== DROPDOWN MENU FALLBACK CSS ===== */
+/* Respaldo para navegadores que no aplican las clases Tailwind group-hover */
+@media (min-width: 1024px) {
+  /* Primer nivel: hover en li.group muestra el sub-menu directo */
+  li.group:hover > ul.sub-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+  }
+
+  /* Segundo nivel: hover en li.group/sub muestra el sub-sub-menu */
+  li.relative:hover > ul[class*="group-hover\/sub"] {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(0) !important;
+  }
+
+  /* Selector más específico para el sub-sub menú */
+  .navbar-nav li.relative:hover > ul {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translate(0, 0) !important;
+  }
+}
